@@ -347,8 +347,43 @@
     <h1 class="title is-1 VLEO-Bench">Experiment Results</h1>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Result Overview</h2>
+        <div class="content has-text-justified">
+          <p>Below, we summarize insights from our evaluations, with a focus on GPT-4V, as it is generally the best-performing VLM across Earth observation tasks. We elaborate on the results in Sections Scene Understanding, Localization &amp; Counting, and Change Detection.</p>
+
+          <ul>
+              <li><i>Scene Understanding</i>: 
+                  <ol style="margin-left: 2.5em; padding-top: 1pt; list-style-type: none;">
+                      <li>On our new <span style="background-color: #cfe2f3;">aerial landmark recognition</span> task, GPT-4V achieves an overall accuracy of 0.67, surpassing open models by a large margin and demonstrating its comprehensive world knowledge. There appear to be regional disparities, with GPT-4V generally performing better in coastal states. In addition, although GPT-4V sometimes generates sophisticated reasoning paths, the reasoning can be incorrect despite a correct final answer.</li>
+                      <li>On <span style="background-color: #cfe2f3;">RSICD image captioning</span>, GPT-4V achieves a RefCLIPScore of 0.75, which measures both image-text semantic similarity and caption-reference similarity. Although GPT-4V does not achieve high similarity between generated and reference captions, our qualitative assessment is that it generates even more detailed captions than the humans employed in RSICD.</li>
+                      <li>On land cover/land use classification tasks, GPT-4V performance varies depending on image resolution, label ambiguity, and label granularity. On <span style="background-color: #cfe2f3;">fMoW-WILDS</span>, the average F1-score is 0.19; on <span style="background-color: #cfe2f3;">PatternNet</span>, average F1-score is 0.71, and on <span style="background-color: #cfe2f3;">BigEarthNet</span>, average F1-score is 0.38. High performance on PatternNet can be attributed to high image resolution and disambiguated labels. Low performance on fMoW-WILDS is largely due to ambiguous labels, which we discuss in Section Land Cover/Land Use Classification.</li>
+                  </ol>
+              </li>
+
+              <li><i>Localization &amp; Counting</i>: 
+                  <ol style="margin-left: 2.5em; padding-top: 1pt; list-style-type: none;">
+                      <li>On <span style="background-color: #cfe2f3;">DIOR-RSVG</span> object localization, GPT-4V obtains a mean intersection-over-union (IoU) of 0.16; only 7.6% of the test images have an IoU > 0.5, while a model that specializes in outputting bounding boxes achieves a mean IoU of 0.68.</li>
+                      <li>While GPT-4V achieves moderate accuracies on the <span style="background-color: #cfe2f3;">COWC</span> vehicle counting and <span style="background-color: #cfe2f3;">xBD</span> building counting tasks, it fails on <span style="background-color: #cfe2f3;">NEON-Tree</span> counting and <span style="background-color: #cfe2f3;">aerial animal detection</span>.</li>
+                  </ol>
+              </li>
+
+              <li><i>Change Detection</i>: On <span style="background-color: #cfe2f3;">xBD</span> change detection, GPT-4V fails to count and categorize the damaged buildings, with a performance score for buildings in the "destroyed" category. Although GPT-4V can count the number of buildings before a disaster with moderate accuracy, it systematically fails to assess the building damage by contrasting before and after images. This systematic failure makes it unusable for disaster relief applications that require counting abilities.</li>
+          </ul>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    
+  </div>
+</section>
+      
 
 
 
